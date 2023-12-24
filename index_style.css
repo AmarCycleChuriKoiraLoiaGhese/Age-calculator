@@ -1,0 +1,208 @@
+:root
+{
+    /* Colors */
+    --purple: hsl(259, 100%, 65%);
+    --light-red: hsl(0, 100%, 67%);
+    --white: hsl(0, 0%, 100%);
+    --off-white: hsl(0, 0%, 94%);
+    --light-grey: hsl(0, 0%, 86%);
+    --smokey-grey: hsl(0, 1%, 44%);
+    --off-black: hsl(0, 0%, 8%);
+
+    /* Font size */
+    --fs-b: 2rem;
+
+    /* Transition time */
+    --tr-t: 300ms;
+}
+
+/* Link to fonts */
+
+@font-face 
+{
+    font-family: Poppins-i;
+    src: url('assets/fonts/Poppins-Italic.ttf');
+}
+
+@font-face 
+{
+    font-family: Poppins-B;
+    src: url('assets/fonts/Poppins-Bold.ttf');
+}
+
+@font-face 
+{
+    font-family: Poppins-EBi;
+    src: url('assets/fonts/Poppins-ExtraBoldItalic.ttf');
+}
+
+/* CSS Resets */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body 
+{
+    display: flex;
+  min-height: 100vh;
+  line-height: 1.5;
+  background-color: var(--off-white);
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label 
+{
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) 
+{
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target 
+{
+  scroll-margin-block: 5ex;
+}
+
+main
+{
+    margin: auto;
+    background-color: var(--white);
+    padding: 3rem;
+    border-radius: 20px 20px 100px 20px;
+}
+
+.inputs-container
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 0.8fr;
+    column-gap: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.inputs-container > span
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs-container label
+{
+    font-family: Poppins-B;
+    color: var(--smokey-grey);
+    letter-spacing: 0.2em;
+    font-size: calc(var(--fs-b) * 0.5);
+    padding-bottom: 0.6em;
+}
+
+.inputs-container input
+{
+    height: 4.5rem;
+    width: 5em;
+    border-radius: 8px;
+    border: 1px solid var(--light-grey);
+    font-size: var(--fs-b);
+    padding-left: 0.6em;
+    font-family: Poppins-B;
+}
+
+.button-container
+{
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.button-container > span
+{
+    flex-grow: 1;
+    height: 2px;
+    background-color: var(--light-grey);
+}
+
+.button-container > button
+{
+    border-radius: 50%;
+    border: none;
+    background-color: var(--purple);
+    padding: 1.4em;
+    display: flex;
+}
+
+.button-container > button > svg
+{
+    width: 2.5rem;
+    height: auto;
+}
+
+/* Footer */
+
+footer
+{
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    text-align: center;
+}
+    
+footer a
+{
+    color: hsl(228, 45%, 44%);
+}
+
