@@ -1,3 +1,5 @@
+@layer utils;
+
 :root
 {
     /* Colors */
@@ -121,8 +123,9 @@ main
 {
     margin: auto;
     background-color: var(--white);
-    padding: 3rem;
-    border-radius: 20px 20px 100px 20px;
+    padding: 3.5rem;
+    border-radius: 30px 30px 200px 30px;
+    box-shadow: 0 0 50px -35px black;
 }
 
 .inputs-container
@@ -139,10 +142,9 @@ main
     flex-direction: column;
 }
 
-.inputs-container label
+.inputs-container label:nth-child(1)
 {
     font-family: Poppins-B;
-    color: var(--smokey-grey);
     letter-spacing: 0.2em;
     font-size: calc(var(--fs-b) * 0.5);
     padding-bottom: 0.6em;
@@ -157,6 +159,21 @@ main
     font-size: var(--fs-b);
     padding-left: 0.6em;
     font-family: Poppins-B;
+    color: var(--off-black);
+    caret-color: var(--purple);
+}
+
+.inputs-container input:focus
+{
+  outline: 1px solid var(--purple);
+}
+
+.warning-lbl
+{
+  margin-top: 0.6em;
+  font-family: Poppins-i;
+  font-size: calc(var(--fs-b) * 0.45);
+  color: var(--light-red);
 }
 
 .button-container
@@ -181,12 +198,56 @@ main
     background-color: var(--purple);
     padding: 1.4em;
     display: flex;
+    cursor: pointer;
+    transition: background-color var(--tr-t);
+}
+
+.button-container > button:hover
+{
+  background-color: var(--off-black);
 }
 
 .button-container > button > svg
 {
     width: 2.5rem;
     height: auto;
+}
+
+.times-container > div
+{
+  display: flex;
+  flex-direction: row;
+}
+
+.times-container h1
+{
+  margin: 0;
+  font-family: Poppins-EBi;
+  font-size: calc(var(--fs-b) * 3);
+  color: var(--off-black);
+}
+
+.times-container h1:nth-child(1)
+{
+  margin-right: 0.1em;
+  color: var(--purple);
+}
+
+/* Utility classes */
+
+.outline-red
+{
+  outline: 1px solid var(--light-red);
+}
+
+.default-color-lbl
+{
+  color: var(--smokey-grey);
+}
+
+.red-lbl
+{
+  color: var(--light-red);
 }
 
 /* Footer */

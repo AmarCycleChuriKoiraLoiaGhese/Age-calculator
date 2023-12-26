@@ -6,6 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="index_style.css">
+  <script defer src="index_script.js"></script>
   <title>Frontend Mentor | Age calculator app</title>
 
 </head>
@@ -15,16 +16,19 @@
 
     <div class="inputs-container">
       <span>
-        <label>DAY</label>
-        <input placeholder="DD">
+        <label class="default-color-lbl">DAY</label>
+        <input id="day-input" placeholder="DD">
+        <label class="warning-lbl"></label>
       </span>
       <span>
-        <label>MONTH</label>
-        <input placeholder="MM">
+        <label class="default-color-lbl">MONTH</label>
+        <input id="month-input" placeholder="MM">
+        <label class="warning-lbl"></label>
       </span>
       <span>
-        <label>YEAR</label>
-        <input placeholder="YYYY">
+        <label class="default-color-lbl">YEAR</label>
+        <input id="year-input" placeholder="YYYY">
+        <label class="warning-lbl"></label>
       </span>
       <!-- filler element -->
       <span></span>
