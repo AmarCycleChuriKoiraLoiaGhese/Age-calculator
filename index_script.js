@@ -200,6 +200,27 @@ function checkValidity()
 
     //#endregion
 
+    //#region Calculate Age
+
+    // Boolean variable that stores whether there are any errors or not.
+    let isThereNoError = true;
+
+    // Loops through the inputs...
+    for (let i = 0; i < 3; i++)
+    {
+        // If any inputs has still errors in it...
+        if (listOfInputs[i].parentElement.children[2].textContent != "")
+            // Just break out of the loop.
+            break;
+        else
+            isThereNoError = false;
+    }
+
+    if (!isThereNoError)
+        calculateAge(dayInputValue, monthInputValue - 1, yearInputValue);
+
+    //#endregion
+
     //#region Helper functions
 
     function showError(index)
@@ -225,5 +246,63 @@ function checkValidity()
 
 function calculateAge(day, month, year)
 {
+    // Gets current date.
+    let now = new Date();  
+    let currentYear = now.getFullYear();  
+    let currentMonth = now.getMonth();  
+    let currentDate = now.getDate();  
 
+    // Get years.
+    let yearAge = currentYear - year;  
+      
+    // Get months.  
+    if (currentMonth >= month)  
+      // Get months when current month is greater.  
+      var monthAge = currentMonth - month;  
+    else 
+    {  
+      yearAge--;  
+      var monthAge = 12 + currentMonth - month;  
+    }  
+
+    // Get days.
+    if (currentDate >= day)  
+      // Get days when the current date is greater.  
+      var dateAge = currentDate - day;  
+    else 
+    {  
+      monthAge--;  
+      var dateAge = 31 + currentDate - day;  
+  
+      if (monthAge < 0) 
+      {  
+        monthAge = 11;  
+        yearAge--;  
+      }  
+    }  
+
+    // Group the age in a single variable.  
+    age = [yearAge, monthAge, dateAge];  
+  
+    let timesContainer = document.getElementsByClassName("times-container")[0].getElementsByTagName("div");
+
+    // Allows animations to occur while assigning numbers to h1 text values.
+    
+    counter = 0;
+    for (let div of timesContainer)
+    {
+        let h1 = div.children[0];
+        let value = age[counter];
+
+        setTimeout(() =>
+        {
+            h1.textContent = value;
+            h1.classList.add("animate");
+        }, 10);
+
+        h1.textContent = "--";
+        h1.classList.remove("animate");
+
+        counter++;
+    }
 }
